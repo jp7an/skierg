@@ -30,9 +30,9 @@ describe('startGroupUtils', () => {
     it('should handle different experience levels correctly', () => {
       // Same W/kg should give different groups for different experience levels
       const wkg = 3.0;
-      expect(determineStartGroup(wkg, 'liten')).toBe('1'); // 3.0 >= 2.66 (liten threshold for group 1) but < 3.12 (liten threshold for Elit)
+      expect(determineStartGroup(wkg, 'liten')).toBe('4'); // 3.0 < 3.08 but >= 2.84
       expect(determineStartGroup(wkg, 'okej')).toBe('2'); // 3.0 < 3.12 but >= 2.82
-      expect(determineStartGroup(wkg, 'stor')).toBe('4'); // 3.0 < 3.08 but >= 2.84
+      expect(determineStartGroup(wkg, 'stor')).toBe('1'); // 3.0 >= 2.66 (stor threshold for group 1) but < 3.12 (stor threshold for Elit)
     });
 
     it('should default to okej experience when not specified', () => {
@@ -119,10 +119,10 @@ describe('startGroupUtils', () => {
       });
     });
 
-    it('should have thresholds in order: liten < okej < stor', () => {
+    it('should have thresholds in order: stor < okej < liten', () => {
       START_GROUPS.forEach(group => {
-        expect(group.thresholds.liten).toBeLessThan(group.thresholds.okej);
-        expect(group.thresholds.okej).toBeLessThan(group.thresholds.stor);
+        expect(group.thresholds.stor).toBeLessThan(group.thresholds.okej);
+        expect(group.thresholds.okej).toBeLessThan(group.thresholds.liten);
       });
     });
   });
