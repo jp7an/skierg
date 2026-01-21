@@ -17,16 +17,16 @@ export interface StartGroup {
 }
 
 export const START_GROUPS: StartGroup[] = [
-  { name: 'Elit', thresholds: { liten: 3.12, okej: 3.64, stor: 4.45 } },
-  { name: '1', thresholds: { liten: 2.66, okej: 3.12, stor: 3.81 } },
-  { name: '2', thresholds: { liten: 2.39, okej: 2.82, stor: 3.45 } },
-  { name: '3', thresholds: { liten: 2.12, okej: 2.51, stor: 3.08 } },
-  { name: '4', thresholds: { liten: 1.94, okej: 2.31, stor: 2.84 } },
-  { name: '5', thresholds: { liten: 1.82, okej: 2.17, stor: 2.67 } },
-  { name: '6', thresholds: { liten: 1.73, okej: 2.07, stor: 2.54 } },
-  { name: '7', thresholds: { liten: 1.65, okej: 1.98, stor: 2.44 } },
-  { name: '8', thresholds: { liten: 1.57, okej: 1.89, stor: 2.33 } },
-  { name: '9', thresholds: { liten: 1.50, okej: 1.81, stor: 2.24 } },
+  { name: 'Elit', thresholds: { liten: 4.45, okej: 3.64, stor: 3.12 } },
+  { name: '1', thresholds: { liten: 3.81, okej: 3.12, stor: 2.66 } },
+  { name: '2', thresholds: { liten: 3.45, okej: 2.82, stor: 2.39 } },
+  { name: '3', thresholds: { liten: 3.08, okej: 2.51, stor: 2.12 } },
+  { name: '4', thresholds: { liten: 2.84, okej: 2.31, stor: 1.94 } },
+  { name: '5', thresholds: { liten: 2.67, okej: 2.17, stor: 1.82 } },
+  { name: '6', thresholds: { liten: 2.54, okej: 2.07, stor: 1.73 } },
+  { name: '7', thresholds: { liten: 2.44, okej: 1.98, stor: 1.65 } },
+  { name: '8', thresholds: { liten: 2.33, okej: 1.89, stor: 1.57 } },
+  { name: '9', thresholds: { liten: 2.24, okej: 1.81, stor: 1.50 } },
 ];
 
 /**

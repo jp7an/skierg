@@ -80,7 +80,7 @@ export default function DistanceForTimeCalculator() {
                 onChange={() => setInputType('pace')}
                 className="mr-2"
               />
-              tid/500m
+              /500m
             </label>
           </div>
           <input

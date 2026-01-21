@@ -40,11 +40,11 @@ export default function WattTempoConverter() {
   };
 
   return (
-    <Card title="Watt ↔ tid/500m">
+    <Card title="Watt ↔ /500m">
       <div className="space-y-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            tid/500m (mm:ss.d)
+            /500m (mm:ss.d)
           </label>
           <div className="flex gap-2">
             <input

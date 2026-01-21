@@ -150,7 +150,7 @@ export default function StartledCalculator() {
                 <span className="font-semibold">W/kg:</span> {result.wattsPerKg} W/kg
               </p>
               <p className="text-sm text-gray-700">
-                <span className="font-semibold">tid/500m:</span> {formatSecondsToTime(result.paceSeconds, 1)}
+                <span className="font-semibold">/500m:</span> {formatSecondsToTime(result.paceSeconds, 1)}
               </p>
             </div>
           </div>
