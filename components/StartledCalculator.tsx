@@ -43,13 +43,19 @@ export default function StartledCalculator() {
     setResult(calculationResult);
   };
 
+  const POSITION_LABELS = {
+    lower: 'nedre delen',
+    middle: 'mitten',
+    upper: 'övre delen',
+  };
+
   const getPositionIndicator = (position: number | null) => {
     if (position === null) return null;
     
     let label = '';
-    if (position < 0.33) label = 'nedre delen';
-    else if (position < 0.67) label = 'mitten';
-    else label = 'övre delen';
+    if (position < 0.33) label = POSITION_LABELS.lower;
+    else if (position < 0.67) label = POSITION_LABELS.middle;
+    else label = POSITION_LABELS.upper;
     
     return (
       <div className="mt-2 pt-2 border-t border-green-300">
@@ -152,7 +158,7 @@ export default function StartledCalculator() {
 
         <div className="text-xs text-gray-600 pt-2 border-t border-gray-200">
           <p>
-            OBS: SkiErg-kapacitet kan variera mellan personer i förhållande till startled. {' '}
+            OBS: SkiErg-kapacitet kan variera mellan personer i förhållande till startled.{' '}
             <a 
               href="https://erikwickstrom.se/2016/12/30/snittwatt-per-kg-kroppsvikt-pa-5000-m-skierg-vs-vasaloppsplacering/" 
               target="_blank" 

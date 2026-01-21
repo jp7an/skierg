@@ -52,7 +52,7 @@ export function determineStartGroup(wattsPerKg: number, experience: SkiExperienc
  * @param wattsPerKg - Power per kilogram (W/kg)
  * @param groupName - Start group name
  * @param experience - Ski experience level
- * @returns Position ratio (0-1+) or null if group not found
+ * @returns Position ratio (0-1, clamped) or null if group not found
  */
 export function getPositionInGroup(wattsPerKg: number, groupName: string, experience: SkiExperience): number | null {
   const groupIndex = START_GROUPS.findIndex(g => g.name === groupName);
@@ -60,13 +60,14 @@ export function getPositionInGroup(wattsPerKg: number, groupName: string, experi
     return null;
   }
   
+  const ELIT_HEADROOM_MULTIPLIER = 1.5;
   const currentGroup = START_GROUPS[groupIndex];
   const lowerThreshold = currentGroup.thresholds[experience];
   
   // Upper threshold is from previous group (if exists) or use a reasonable upper bound
   const upperThreshold = groupIndex > 0 
     ? START_GROUPS[groupIndex - 1].thresholds[experience]
-    : lowerThreshold * 1.5; // For Elit group, add 50% headroom
+    : lowerThreshold * ELIT_HEADROOM_MULTIPLIER; // For Elit group, add 50% headroom
   
   const range = upperThreshold - lowerThreshold;
   if (range <= 0) return 0.5;
