@@ -62,7 +62,6 @@ describe('Calculator Functions', () => {
       const wattsPerKg = 2.5;
       
       const groupLiten = determineStartGroup(wattsPerKg, 'liten');
-      const groupOkej = determineStartGroup(wattsPerKg, 'okej');
       const groupStor = determineStartGroup(wattsPerKg, 'stor');
       
       // With liten (lower thresholds), should qualify for higher group
