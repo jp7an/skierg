@@ -12,7 +12,7 @@ En svensk, minimalistisk Next.js-app för Concept2 SkiErg-relaterade beräkninga
 
 ## Formler
 
-Concept2-formel: `Watt = 2.80 / (tempo/500m)³` där tempo är i sekunder per 500m.
+Concept2-formel: `Watt = 2.80 × (500 / tempo)³` där tempo är i sekunder per 500m.
 
 Startgrupper baseras på W/kg-trösklar:
 - Elit: ≥ 3.64 W/kg
