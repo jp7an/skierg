@@ -6,18 +6,18 @@ import StartledCalculator from '@/components/StartledCalculator';
 
 export default function Home() {
   return (
-    <main className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+        <header className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
             SkiErg Kalkylatorer
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm">
             Beräkningsverktyg för Concept2 SkiErg träning och tävling
           </p>
         </header>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <WattTempoConverter />
           <TimeForDistanceCalculator />
           <DistanceForTimeCalculator />
@@ -25,9 +25,9 @@ export default function Home() {
           <StartledCalculator />
         </div>
 
-        <footer className="mt-12 text-center text-sm text-gray-500">
+        <footer className="mt-8 text-center text-sm text-gray-500">
           <p>
-            Formel: Watt = 2.80 × (500 / tempo)³
+            Formel: Watt = 2.80 × (500 / tid)³
           </p>
         </footer>
       </div>

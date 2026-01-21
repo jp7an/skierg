@@ -4,17 +4,31 @@ En svensk, minimalistisk Next.js-app för Concept2 SkiErg-relaterade beräkninga
 
 ## Funktioner
 
-- **Watt ↔ Tempo/500m**: Konvertera mellan watt och tempo/500m med Concept2-formeln
-- **Tid för sträcka**: Beräkna tid för en given sträcka från watt eller tempo/500m
-- **Sträcka för tid**: Beräkna sträcka för en given tid från watt eller tempo/500m
-- **Krävd kraft**: Beräkna krävd watt/tempo för en specifik sträcka och tid
-- **Startled-kalkylator**: Beräkna startgrupp baserat på vikt och 5000m tid
+- **Watt ↔ tid/500m**: Konvertera mellan watt och tid/500m med Concept2-formeln
+- **Beräkna tid**: Beräkna tid för en given sträcka från watt eller tid/500m
+- **Beräkna sträcka**: Beräkna sträcka för en given tid från watt eller tid/500m
+- **Beräkna krävd effekt (watt)**: Beräkna krävd watt/tid för en specifik sträcka och tid
+- **Beräkna startled**: Beräkna startgrupp baserat på vikt, 5000m tid och skidvana (liten/okej/stor)
 
 ## Formler
 
-Concept2-formel: `Watt = 2.80 × (500 / tempo)³` där tempo är i sekunder per 500m.
+Concept2-formel: `Watt = 2.80 × (500 / tid)³` där tid är i sekunder per 500m.
 
-Startgrupper baseras på W/kg-trösklar:
+Startgrupper baseras på W/kg-trösklar med tre erfarenhetsnivåer:
+
+### Skidvana: Liten
+- Elit: ≥ 3.12 W/kg
+- 1: ≥ 2.66 W/kg
+- 2: ≥ 2.39 W/kg
+- 3: ≥ 2.12 W/kg
+- 4: ≥ 1.94 W/kg
+- 5: ≥ 1.82 W/kg
+- 6: ≥ 1.73 W/kg
+- 7: ≥ 1.65 W/kg
+- 8: ≥ 1.57 W/kg
+- 9: ≥ 1.50 W/kg
+
+### Skidvana: Okej (standard)
 - Elit: ≥ 3.64 W/kg
 - 1: ≥ 3.12 W/kg
 - 2: ≥ 2.82 W/kg
@@ -25,6 +39,20 @@ Startgrupper baseras på W/kg-trösklar:
 - 7: ≥ 1.98 W/kg
 - 8: ≥ 1.89 W/kg
 - 9: ≥ 1.81 W/kg
+
+### Skidvana: Stor
+- Elit: ≥ 4.45 W/kg
+- 1: ≥ 3.81 W/kg
+- 2: ≥ 3.45 W/kg
+- 3: ≥ 3.08 W/kg
+- 4: ≥ 2.84 W/kg
+- 5: ≥ 2.67 W/kg
+- 6: ≥ 2.54 W/kg
+- 7: ≥ 2.44 W/kg
+- 8: ≥ 2.33 W/kg
+- 9: ≥ 2.24 W/kg
+
+**OBS:** SkiErg-kapacitet kan variera mellan personer i förhållande till startled. Se [källa](https://erikwickstrom.se/2016/12/30/snittwatt-per-kg-kroppsvikt-pa-5000-m-skierg-vs-vasaloppsplacering/) för mer information.
 
 ## Utveckling
 
