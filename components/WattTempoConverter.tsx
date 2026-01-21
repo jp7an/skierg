@@ -40,23 +40,23 @@ export default function WattTempoConverter() {
   };
 
   return (
-    <Card title="Watt ↔ Tempo/500m">
-      <div className="space-y-4">
+    <Card title="Watt ↔ tid/500m">
+      <div className="space-y-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Tempo/500m (mm:ss.d)
+            tid/500m (mm:ss.d)
           </label>
           <div className="flex gap-2">
             <input
               type="text"
               value={tempoInput}
               onChange={(e) => setTempoInput(e.target.value)}
-              placeholder="2:15.0"
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder=""
+              className="flex-1 px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             />
             <button
               onClick={convertTempoToWatts}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
             >
               → Watt
             </button>
@@ -72,27 +72,27 @@ export default function WattTempoConverter() {
               type="text"
               value={wattsInput}
               onChange={(e) => setWattsInput(e.target.value)}
-              placeholder="200"
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder=""
+              className="flex-1 px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             />
             <button
               onClick={convertWattsToTempo}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
             >
-              → Tempo
+              → tid
             </button>
           </div>
         </div>
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+          <div className="p-2 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-3 bg-green-50 border border-green-200 rounded-md">
-            <p className="text-lg font-semibold text-gray-900">{result}</p>
+          <div className="p-2 bg-green-50 border border-green-200 rounded-md">
+            <p className="text-base font-semibold text-gray-900">{result}</p>
           </div>
         )}
       </div>

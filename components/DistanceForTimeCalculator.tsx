@@ -42,8 +42,8 @@ export default function DistanceForTimeCalculator() {
   };
 
   return (
-    <Card title="Beräkna sträcka för tid">
-      <div className="space-y-4">
+    <Card title="Beräkna sträcka">
+      <div className="space-y-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Tid (hh:mm:ss.d)
@@ -52,14 +52,14 @@ export default function DistanceForTimeCalculator() {
             type="text"
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
-            placeholder="20:00.0"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder=""
+            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Kraftkälla
+            Enhet
           </label>
           <div className="flex gap-4 mb-2">
             <label className="flex items-center">
@@ -80,34 +80,34 @@ export default function DistanceForTimeCalculator() {
                 onChange={() => setInputType('pace')}
                 className="mr-2"
               />
-              Tempo/500m
+              tid/500m
             </label>
           </div>
           <input
             type="text"
             value={powerInput}
             onChange={(e) => setPowerInput(e.target.value)}
-            placeholder={inputType === 'watts' ? '200' : '2:15.0'}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder={inputType === 'watts' ? '' : 'mm:ss.d'}
+            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
           />
         </div>
 
         <button
           onClick={calculate}
-          className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
         >
           Beräkna
         </button>
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+          <div className="p-2 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-3 bg-green-50 border border-green-200 rounded-md">
-            <p className="text-lg font-semibold text-gray-900">{result}</p>
+          <div className="p-2 bg-green-50 border border-green-200 rounded-md">
+            <p className="text-base font-semibold text-gray-900">{result}</p>
           </div>
         )}
       </div>
