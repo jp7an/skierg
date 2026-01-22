@@ -7,7 +7,7 @@ En svensk, minimalistisk Next.js-app för Concept2 SkiErg-relaterade beräkninga
 - **Watt ↔ /500m**: Konvertera mellan watt och /500m med Concept2-formeln
 - **Beräkna tid**: Beräkna tid för en given sträcka från watt eller /500m
 - **Beräkna sträcka**: Beräkna sträcka för en given tid från watt eller /500m
-- **Beräkna krävd effekt (watt)**: Beräkna krävd watt/tid för en specifik sträcka och tid
+- **Beräkna effekt/fart**: Beräkna watt/tid för en specifik sträcka och tid
 - **Beräkna startled**: Beräkna startgrupp baserat på vikt, 5000m tid och skidvana (liten/okej/stor)
 
 ## Formler
