@@ -37,7 +37,7 @@ export default function RequiredEffortCalculator() {
   };
 
   return (
-    <Card title="Beräkna krävd effekt (watt)">
+    <Card title="Beräkna effekt/fart">
       <div className="space-y-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">

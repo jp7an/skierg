@@ -12,9 +12,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             SkiErg Kalkylatorer
           </h1>
-          <p className="text-gray-600 text-sm">
-            Beräkningsverktyg för Concept2 SkiErg träning och tävling
-          </p>
+          <p className="text-gray-600 text-sm">Beräkningsverktyg för Concept2 SkiErg</p>
         </header>
 
         <div className="space-y-4">
@@ -25,11 +23,7 @@ export default function Home() {
           <StartledCalculator />
         </div>
 
-        <footer className="mt-8 text-center text-sm text-gray-500">
-          <p>
-            Formel: Watt = 2.80 × (500 / tid)³
-          </p>
-        </footer>
+        <footer className="mt-8 text-center text-sm text-gray-500"></footer>
       </div>
     </main>
   );
