@@ -58,16 +58,16 @@ export default function StartledCalculator() {
     else label = POSITION_LABELS.upper;
     
     return (
-      <div className="mt-2 pt-2 border-t border-gray-700">
+      <div className="mt-2 pt-2 border-t border-zinc-700">
         <div className="flex items-center gap-2">
-          <div className="flex-1 bg-gray-700 h-2 rounded-full overflow-hidden">
+          <div className="flex-1 bg-zinc-700 h-2 rounded-full overflow-hidden">
             <div 
               className="bg-green-500 h-full transition-all duration-300"
               style={{ width: `${Math.min(100, position * 100)}%` }}
             />
           </div>
         </div>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-zinc-400 mt-1">
           Du är i <span className="font-semibold">{label}</span> av startgruppen
         </p>
       </div>
@@ -77,86 +77,90 @@ export default function StartledCalculator() {
   return (
     <Card title="Beräkna startled">
       <div className="space-y-2">
-        <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
-            Vikt (kg)
-          </label>
-          <input
-            type="text"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-            placeholder="t.ex. 75"
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
-          />
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div>
+            <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
+              Vikt (kg)
+            </label>
+            <input
+              type="text"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              placeholder="t.ex. 75"
+              className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
+            />
+          </div>
 
-        <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
-            5000m tid (hh:mm:ss.d)
-          </label>
-          <input
-            type="text"
-            value={timeInput}
-            onChange={(e) => setTimeInput(e.target.value)}
-            placeholder="t.ex. 20:00.0"
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
-          />
-        </div>
+          <div>
+            <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
+              5000m tid (hh:mm:ss.d)
+            </label>
+            <input
+              type="text"
+              value={timeInput}
+              onChange={(e) => setTimeInput(e.target.value)}
+              placeholder="t.ex. 20:00.0"
+              className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
+            />
+          </div>
 
-        <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
-            Skidvana
-          </label>
-          <select
-            value={experience}
-            onChange={(e) => setExperience(e.target.value as SkiExperience)}
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
-          >
-            <option value="liten">Liten</option>
-            <option value="okej">Okej</option>
-            <option value="stor">Stor</option>
-          </select>
-          <p className="text-xs text-gray-500 mt-1">
-            Välj din erfarenhet av längdskidåkning
-          </p>
+          <div>
+            <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
+              Skidvana
+            </label>
+            <select
+              value={experience}
+              onChange={(e) => setExperience(e.target.value as SkiExperience)}
+              className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
+            >
+              <option value="liten">Liten</option>
+              <option value="okej">Okej</option>
+              <option value="stor">Stor</option>
+            </select>
+          </div>
         </div>
 
         <button
           onClick={calculate}
-          className="w-full px-3 py-2 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-4 py-1.5 bg-green-500 hover:bg-green-400 text-black text-xs font-bold rounded uppercase tracking-wide transition-colors"
         >
           Beräkna startled
         </button>
 
         {error && (
-          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
+          <div className="px-2 py-1 bg-zinc-900 border border-red-500/40 rounded text-red-400 text-xs">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg space-y-2">
+          <div className="px-2 py-1.5 bg-zinc-900 border border-green-500/30 rounded space-y-2">
             <div>
-              <p className="text-xl font-bold text-green-400">
+              <p className="text-green-400 text-xl font-black">
                 Startled: {result.startGroup}
               </p>
             </div>
             {getPositionIndicator(result.position)}
-            <div className="border-t border-gray-700 pt-2 space-y-1">
-              <p className="text-sm text-gray-300">
-                <span className="font-semibold">Genomsnittlig effekt:</span> {result.watts} W
-              </p>
-              <p className="text-sm text-gray-300">
-                <span className="font-semibold">W/kg:</span> {result.wattsPerKg} W/kg
-              </p>
-              <p className="text-sm text-gray-300">
-                <span className="font-semibold">/500m:</span> {formatSecondsToTime(result.paceSeconds, 1)}
-              </p>
+            <div className="border-t border-zinc-700 pt-2">
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <p className="text-xs text-green-500 uppercase tracking-wide">Watt</p>
+                  <p className="text-green-400 font-bold text-sm">{result.watts} W</p>
+                </div>
+                <div>
+                  <p className="text-xs text-green-500 uppercase tracking-wide">W/kg</p>
+                  <p className="text-green-400 font-bold text-sm">{result.wattsPerKg}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-green-500 uppercase tracking-wide">/500m</p>
+                  <p className="text-green-400 font-bold text-sm">{formatSecondsToTime(result.paceSeconds, 1)}</p>
+                </div>
+              </div>
             </div>
           </div>
         )}
 
-        <div className="text-xs text-gray-600 pt-2 border-t border-gray-700">
+        <div className="text-xs text-zinc-600 pt-2 border-t border-zinc-700">
           <p>
             OBS: SkiErg-kapacitet kan variera mellan personer i förhållande till startled.{' '}
             <a 

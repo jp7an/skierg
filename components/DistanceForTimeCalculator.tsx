@@ -45,35 +45,34 @@ export default function DistanceForTimeCalculator() {
     <Card title="Beräkna sträcka">
       <div className="space-y-2">
         <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
+          <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
             Tid (hh:mm:ss.d)
           </label>
           <input
             type="text"
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
-            placeholder=""
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
+            className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
+          <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
             Enhet
           </label>
-          <div className="flex gap-1 p-0.5 bg-gray-800 rounded-lg w-fit mb-2">
+          <div className="flex gap-0.5 p-0.5 bg-zinc-900 border border-zinc-700 rounded w-fit mb-2">
             <button
               onClick={() => setInputType('watts')}
-              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                inputType === 'watts' ? 'bg-green-500 text-black' : 'text-gray-400 hover:text-white'
+              className={`px-3 py-0.5 text-xs font-bold rounded transition-colors ${
+                inputType === 'watts' ? 'bg-green-500 text-black' : 'text-zinc-400 hover:text-white'
               }`}
             >
               Watt
             </button>
             <button
               onClick={() => setInputType('pace')}
-              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                inputType === 'pace' ? 'bg-green-500 text-black' : 'text-gray-400 hover:text-white'
+              className={`px-3 py-0.5 text-xs font-bold rounded transition-colors ${
+                inputType === 'pace' ? 'bg-green-500 text-black' : 'text-zinc-400 hover:text-white'
               }`}
             >
               /500m
@@ -84,26 +83,26 @@ export default function DistanceForTimeCalculator() {
             value={powerInput}
             onChange={(e) => setPowerInput(e.target.value)}
             placeholder={inputType === 'watts' ? '' : 'mm:ss.d'}
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
+            className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
           />
         </div>
 
         <button
           onClick={calculate}
-          className="w-full px-3 py-2 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-4 py-1.5 bg-green-500 hover:bg-green-400 text-black text-xs font-bold rounded uppercase tracking-wide transition-colors"
         >
           Beräkna
         </button>
 
         {error && (
-          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
+          <div className="px-2 py-1 bg-zinc-900 border border-red-500/40 rounded text-red-400 text-xs">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg">
-            <p className="text-green-400 font-bold text-base">{result}</p>
+          <div className="px-2 py-1.5 bg-zinc-900 border border-green-500/30 rounded">
+            <p className="text-green-400 font-bold text-sm">{result}</p>
           </div>
         )}
       </div>

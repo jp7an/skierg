@@ -40,49 +40,47 @@ export default function RequiredEffortCalculator() {
     <Card title="Beräkna effekt/fart">
       <div className="space-y-2">
         <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
+          <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
             Sträcka (meter)
           </label>
           <input
             type="text"
             value={distance}
             onChange={(e) => setDistance(e.target.value)}
-            placeholder=""
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
+            className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
+          <label className="block text-xs text-green-500 uppercase tracking-wide mb-0.5">
             Tid (hh:mm:ss.d)
           </label>
           <input
             type="text"
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
-            placeholder=""
-            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
+            className="bg-black border border-zinc-700 text-white rounded px-2 py-0.5 text-sm focus:outline-none focus:border-green-500 w-full"
           />
         </div>
 
         <button
           onClick={calculate}
-          className="w-full px-3 py-2 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-4 py-1.5 bg-green-500 hover:bg-green-400 text-black text-xs font-bold rounded uppercase tracking-wide transition-colors"
         >
           Beräkna
         </button>
 
         {error && (
-          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
+          <div className="px-2 py-1 bg-zinc-900 border border-red-500/40 rounded text-red-400 text-xs">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg space-y-1">
-            <p className="text-green-400 font-bold text-base">Krävd effekt:</p>
-            <p className="text-sm text-gray-300">Watt: {result.watts}</p>
-            <p className="text-sm text-gray-300">tid: {result.pace}</p>
+          <div className="px-2 py-1.5 bg-zinc-900 border border-green-500/30 rounded space-y-0.5">
+            <p className="text-green-400 font-bold text-sm">Krävd effekt:</p>
+            <p className="text-xs text-green-400">Watt: {result.watts}</p>
+            <p className="text-xs text-green-400">tid: {result.pace}</p>
           </div>
         )}
       </div>
