@@ -8,19 +8,21 @@ export default function Home() {
   return (
     <main className="min-h-screen py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            SkiErg Kalkylatorer
+        <header className="text-center mb-6">
+          <h1 className="text-2xl font-black text-white tracking-tight">
+            SKI<span className="text-green-400">ERG</span>
           </h1>
-          <p className="text-gray-600 text-sm">Beräkningsverktyg för Concept2 SkiErg</p>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mt-1">Concept2 Kalkylatorer</p>
         </header>
 
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <WattTempoConverter />
           <TimeForDistanceCalculator />
           <DistanceForTimeCalculator />
           <RequiredEffortCalculator />
-          <StartledCalculator />
+          <div className="col-span-1 md:col-span-2">
+            <StartledCalculator />
+          </div>
         </div>
 
         <footer className="mt-8 text-center text-sm text-gray-500"></footer>

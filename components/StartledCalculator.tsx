@@ -58,16 +58,16 @@ export default function StartledCalculator() {
     else label = POSITION_LABELS.upper;
     
     return (
-      <div className="mt-2 pt-2 border-t border-green-300">
+      <div className="mt-2 pt-2 border-t border-gray-700">
         <div className="flex items-center gap-2">
-          <div className="flex-1 bg-gray-200 h-2 rounded-full overflow-hidden">
+          <div className="flex-1 bg-gray-700 h-2 rounded-full overflow-hidden">
             <div 
-              className="bg-blue-600 h-full transition-all duration-300"
+              className="bg-green-500 h-full transition-all duration-300"
               style={{ width: `${Math.min(100, position * 100)}%` }}
             />
           </div>
         </div>
-        <p className="text-xs text-gray-600 mt-1">
+        <p className="text-xs text-gray-400 mt-1">
           Du är i <span className="font-semibold">{label}</span> av startgruppen
         </p>
       </div>
@@ -76,9 +76,9 @@ export default function StartledCalculator() {
 
   return (
     <Card title="Beräkna startled">
-      <div className="space-y-3">
+      <div className="space-y-2">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             Vikt (kg)
           </label>
           <input
@@ -86,12 +86,12 @@ export default function StartledCalculator() {
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
             placeholder="t.ex. 75"
-            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             5000m tid (hh:mm:ss.d)
           </label>
           <input
@@ -99,18 +99,18 @@ export default function StartledCalculator() {
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
             placeholder="t.ex. 20:00.0"
-            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             Skidvana
           </label>
           <select
             value={experience}
             onChange={(e) => setExperience(e.target.value as SkiExperience)}
-            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
           >
             <option value="liten">Liten</option>
             <option value="okej">Okej</option>
@@ -123,47 +123,47 @@ export default function StartledCalculator() {
 
         <button
           onClick={calculate}
-          className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
+          className="w-full px-3 py-2 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Beräkna startled
         </button>
 
         {error && (
-          <div className="p-2 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-3 bg-green-50 border border-green-200 rounded-md space-y-2">
+          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg space-y-2">
             <div>
-              <p className="text-xl font-bold text-gray-900">
+              <p className="text-xl font-bold text-green-400">
                 Startled: {result.startGroup}
               </p>
             </div>
             {getPositionIndicator(result.position)}
-            <div className="border-t border-green-300 pt-2 space-y-1">
-              <p className="text-sm text-gray-700">
+            <div className="border-t border-gray-700 pt-2 space-y-1">
+              <p className="text-sm text-gray-300">
                 <span className="font-semibold">Genomsnittlig effekt:</span> {result.watts} W
               </p>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-300">
                 <span className="font-semibold">W/kg:</span> {result.wattsPerKg} W/kg
               </p>
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-gray-300">
                 <span className="font-semibold">/500m:</span> {formatSecondsToTime(result.paceSeconds, 1)}
               </p>
             </div>
           </div>
         )}
 
-        <div className="text-xs text-gray-600 pt-2 border-t border-gray-200">
+        <div className="text-xs text-gray-600 pt-2 border-t border-gray-700">
           <p>
             OBS: SkiErg-kapacitet kan variera mellan personer i förhållande till startled.{' '}
             <a 
               href="https://erikwickstrom.se/2016/12/30/snittwatt-per-kg-kroppsvikt-pa-5000-m-skierg-vs-vasaloppsplacering/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-green-400 hover:underline"
             >
               källa
             </a>

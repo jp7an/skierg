@@ -43,9 +43,9 @@ export default function DistanceForTimeCalculator() {
 
   return (
     <Card title="Beräkna sträcka">
-      <div className="space-y-3">
+      <div className="space-y-2">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             Tid (hh:mm:ss.d)
           </label>
           <input
@@ -53,61 +53,57 @@ export default function DistanceForTimeCalculator() {
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
             placeholder=""
-            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             Enhet
           </label>
-          <div className="flex gap-4 mb-2">
-            <label className="flex items-center">
-              <input
-                type="radio"
-                value="watts"
-                checked={inputType === 'watts'}
-                onChange={() => setInputType('watts')}
-                className="mr-2"
-              />
+          <div className="flex gap-1 p-0.5 bg-gray-800 rounded-lg w-fit mb-2">
+            <button
+              onClick={() => setInputType('watts')}
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
+                inputType === 'watts' ? 'bg-green-500 text-black' : 'text-gray-400 hover:text-white'
+              }`}
+            >
               Watt
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                value="pace"
-                checked={inputType === 'pace'}
-                onChange={() => setInputType('pace')}
-                className="mr-2"
-              />
+            </button>
+            <button
+              onClick={() => setInputType('pace')}
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
+                inputType === 'pace' ? 'bg-green-500 text-black' : 'text-gray-400 hover:text-white'
+              }`}
+            >
               /500m
-            </label>
+            </button>
           </div>
           <input
             type="text"
             value={powerInput}
             onChange={(e) => setPowerInput(e.target.value)}
             placeholder={inputType === 'watts' ? '' : 'mm:ss.d'}
-            className="w-full px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full"
           />
         </div>
 
         <button
           onClick={calculate}
-          className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
+          className="w-full px-3 py-2 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Beräkna
         </button>
 
         {error && (
-          <div className="p-2 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-2 bg-green-50 border border-green-200 rounded-md">
-            <p className="text-base font-semibold text-gray-900">{result}</p>
+          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg">
+            <p className="text-green-400 font-bold text-base">{result}</p>
           </div>
         )}
       </div>
