@@ -41,9 +41,9 @@ export default function WattTempoConverter() {
 
   return (
     <Card title="Watt ↔ /500m">
-      <div className="space-y-3">
+      <div className="space-y-2">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             /500m (mm:ss.d)
           </label>
           <div className="flex gap-2">
@@ -52,11 +52,11 @@ export default function WattTempoConverter() {
               value={tempoInput}
               onChange={(e) => setTempoInput(e.target.value)}
               placeholder=""
-              className="flex-1 px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="flex-1 bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             />
             <button
               onClick={convertTempoToWatts}
-              className="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
+              className="px-3 py-1.5 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors whitespace-nowrap"
             >
               → Watt
             </button>
@@ -64,7 +64,7 @@ export default function WattTempoConverter() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">
             Watt
           </label>
           <div className="flex gap-2">
@@ -73,11 +73,11 @@ export default function WattTempoConverter() {
               value={wattsInput}
               onChange={(e) => setWattsInput(e.target.value)}
               placeholder=""
-              className="flex-1 px-2.5 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="flex-1 bg-gray-800 border border-gray-700 text-white rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             />
             <button
               onClick={convertWattsToTempo}
-              className="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
+              className="px-3 py-1.5 bg-green-500 hover:bg-green-400 text-black font-bold rounded-lg text-sm transition-colors whitespace-nowrap"
             >
               → tid
             </button>
@@ -85,14 +85,14 @@ export default function WattTempoConverter() {
         </div>
 
         {error && (
-          <div className="p-2 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+          <div className="p-2 bg-red-950 border border-red-500/40 rounded-lg text-red-400 text-sm">
             {error}
           </div>
         )}
 
         {result && (
-          <div className="p-2 bg-green-50 border border-green-200 rounded-md">
-            <p className="text-base font-semibold text-gray-900">{result}</p>
+          <div className="p-2.5 bg-gray-800 border border-green-500/40 rounded-lg">
+            <p className="text-green-400 font-bold text-base">{result}</p>
           </div>
         )}
       </div>
